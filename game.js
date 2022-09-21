@@ -10,31 +10,33 @@ function create() {
     let bg2 = this.add.circle(252, 120, 100, 0x33aFd0)
 
     // Author
-    this.add.text(25, 100, "Divs4U & Bandit Games present...", { 
-        font: "30px Helvetica", 
-        fill: "#000000"
-    });
-
-    // Title
-    this.add.text(365, 250, "Sammy Seal", {
-        font: "60px Monospace", 
-        fill: "#FFFFFF"
-    });
-    this.add.text(405, 325, "and his super slide", {
-        font: "36px Helvetica",
+    let author = this.add.text(25, 100, "Divs4U & Bandit Games present...", { 
+        font: "30px Helvetica",
         fill: "#000000"
     })
 
+    // Title
+    let title = this.add.text(365, 250, "Sammy Seal", {
+        font: "60px Monospace", 
+        fill: "#FFFFFF"
+    });
+    let subtitle = this.add.text(405, 325, "and his super slide", {
+        font: "36px Helvetica",
+        fill: "#000000"
+    });
+
 
     // Eyes
-    let circle2 = this.add.circle(625, 500, 35, 0xFFFFFF)
-    let circle1 = this.add.circle(635, 510, 15, 0x000000)
-
-    let circle3 = this.add.circle(525, 500, 35, 0xFFFFFF)
-    let circle4 = this.add.circle(535, 510, 15, 0x000000)
+    // Right
+    let rightEyeWhite = this.add.circle(675, 500, 35, 0xFFFFFF)
+    let rightEyePupil = this.add.circle(685, 510, 15, 0x000000)
+    // Left
+    let leftEyeWhite = this.add.circle(590, 500, 35, 0xFFFFFF)
+    let leftEyePupil = this.add.circle(600, 510, 15, 0x000000)
 
     // Sprite
 
+    console.log(author)
   }
   
   const config = {
