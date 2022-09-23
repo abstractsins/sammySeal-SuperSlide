@@ -1,4 +1,3 @@
-const gameState = {}
 
 /******************************************************
  * CONFIG
@@ -8,7 +7,7 @@ const config = {
     width: 800,
     height: 600,
     backgroundColor: "b9eaff", 
-    gameVersion: "0.1",
+    gameVersion: "0.2",
     physics: {
         default: 'arcade',
         arcade: {

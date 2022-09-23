@@ -1,4 +1,5 @@
-gameState.keys =  {};
+const gameState = {};
+gameState.start = {};
 
 class StartScene extends Phaser.Scene {
     constructor(){ super({key: 'StartScene'}) }
@@ -21,7 +22,7 @@ class StartScene extends Phaser.Scene {
 
     create() {
 
-        /***************
+        /************
          * BACKGROUND
          */        
         gameState.start.bg = {};
@@ -49,14 +50,16 @@ class StartScene extends Phaser.Scene {
         });
         // Instructions
         gameState.start.text.instructions = this.add.text(150, 560, "press ENTER to start", {
-            font: "24px"
+            font: "24px",
+            fill: "#000"
         })
-        gameState.instructions.visible = false;
+        gameState.start.text.instructions.visible = false;
         
-        /***************
+        /******
          * EYES
          */        
         // Right
+        gameState.start.eyes = {};
         gameState.start.eyes.rightWhite = this.add.circle(675, 500, 35, 0xFFFFFF)
         gameState.start.eyes.rightPupil = this.add.circle(685, 510, 15, 0x000000)
         // Left
@@ -68,17 +71,18 @@ class StartScene extends Phaser.Scene {
         gameState.start.eyes.leftLid.visible = false;
         gameState.start.eyes.rightLid.visible = false;
         
-        /***************
+        /**********
          * CONTROLS
          */
+        gameState.keys =  {};
         // Enter button - CONTINUE
         gameState.keys.Enter = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
 
-        /***************
+        /*******
          * MUSIC
          */
-        gameState.music = this.sound.add('theme');
-        gameState.music.play()
+        gameState.start.music = this.sound.add('theme');
+        gameState.start.music.play()
 
     } // CREATE
 
@@ -87,10 +91,20 @@ class StartScene extends Phaser.Scene {
      *****************************************************/
 
     update(){
+        
+        // ENTER PRESS
         if (Phaser.Input.Keyboard.JustDown(gameState.keys.Enter)) {
             this.scene.stop('StartScene');
+            // gameState.start.music.stop();
             this.scene.start('GameScene');
         }
+
+        // INSTRUCTIONS APPEAR
+        setTimeout(function(){
+            gameState.start.text.instructions.visible = true;
+        }, 2500)
+
+
     } // UPDATE
 
 } // StartScene class
